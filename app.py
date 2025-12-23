@@ -441,7 +441,7 @@ def agent_selector_ui(agents: List[Dict[str, Any]]) -> Dict[str, Any]:
         st.session_state["selected_agent_id"] = selected_id
         # Defaults from agent config
         st.session_state["llm_provider"] = selected_agent.get("default_provider", "Gemini")
-        st.session_state["llm_model_id"] = selected_agent.get("default_model", "gemini-3-flash")
+        st.session_state["llm_model_id"] = selected_agent.get("default_model", "gemini-3-flash-preview")
         st.session_state["llm_max_tokens"] = selected_agent.get("default_max_tokens", 4096)
         st.session_state["llm_temperature"] = selected_agent.get("default_temperature", 0.3)
         st.session_state["llm_system_prompt"] = selected_agent.get(
@@ -530,7 +530,7 @@ MODEL_CATALOG = {
     ],
     "Gemini": [
         {"id": "gemini-2.5-flash", "label": "Gemini 2.5 Flash"},
-        {"id": "gemini-3-flash", "label": "Gemini 3 Flash"},
+        {"id": "gemini-3-flash-preview", "label": "Gemini 3 Flash"},
     ],
     "Anthropic": [
         {"id": "claude-3.5-sonnet", "label": "Claude 3.5 Sonnet"},
@@ -589,7 +589,7 @@ def render_llm_controls():
 def get_llm_config():
     return (
         st.session_state.get("llm_provider", "Gemini"),
-        st.session_state.get("llm_model_id", "gemini-3-flash"),
+        st.session_state.get("llm_model_id", "gemini-3-flash-preview"),
         int(st.session_state.get("llm_max_tokens", 4096)),
         float(st.session_state.get("llm_temperature", 0.3)),
         st.session_state.get("llm_system_prompt", "你是一位 FDA 法規合規與策略分析專家，請使用繁體中文回答。"),
