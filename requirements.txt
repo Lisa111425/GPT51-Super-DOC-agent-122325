@@ -9,3 +9,8 @@ pdf2image
 pytesseract
 Pillow
 pandas
+xai_sdk
+docx2txt
+PyPDF2
+fpdf2
+PyYAML
